@@ -23,6 +23,8 @@ defineProps({
         <div class="mx-auto md:w-2/3 py-20 px-6">
             <FormKit
                 type="form"
+                submit-label="Add Client"
+                incomplete-message=" Please try again"
             >
                 <FormKit
                     type="text"
