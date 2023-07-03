@@ -2,5 +2,5 @@
 </script>
 
 <template>
-    <h1>Clients</h1>
+    <h1 class="text-4xl font-extrabold text-slate-500">Clients</h1>
 </template>
