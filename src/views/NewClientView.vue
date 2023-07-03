@@ -28,9 +28,39 @@ defineProps({
                     type="text"
                     label="Name"
                     placeholder="Client name"
-                    help="Name of the new client"
                     validation="required"
                     :validation-messages="{required: 'Name is required.'}"
+                />
+                <FormKit
+                    type="text"
+                    label="Surname"
+                    placeholder="surname"
+                    validation="required"
+                    :validation-messages="{required: 'Surname is required.'}"
+                />
+                <FormKit
+                    type="email"
+                    label="Email"
+                    placeholder="Email"
+                    validation="required|email"
+                    :validation-messages="{required: 'Email is required.'}"
+                />
+                <FormKit
+                    type="text"
+                    label="Phone"
+                    placeholder="Phone: xxx-xxx-xxxx"
+                    validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
+                    :validation-messages="{matches: 'Phone number format is incorrect.'}"
+                />
+                <FormKit
+                    type="text"
+                    label="Company"
+                    placeholder="company"
+                />
+                <FormKit
+                    type="text"
+                    label="Occupation"
+                    placeholder="Occupation"
                 />
             </FormKit>
         </div>
