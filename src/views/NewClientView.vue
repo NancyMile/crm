@@ -23,6 +23,14 @@ defineProps({
         <FormKit
             type="form"
         >
+            <FormKit
+                type="text"
+                label="Name"
+                placeholder="Client name"
+                help="Name of the new client"
+                validation="required"
+                :validation-messages="{required: 'Name is required.'}"
+            />
 
         </FormKit>
     </div>
