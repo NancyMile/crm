@@ -9,6 +9,11 @@ defineProps({
         required: true
     }
 })
+
+const handleSubmit = (data) => {
+    //console.log('submit ...')
+    //console.log(data)
+}
 </script>
 
 <template>
@@ -25,10 +30,12 @@ defineProps({
                 type="form"
                 submit-label="Add Client"
                 incomplete-message=" Please try again"
+                @submit="handleSubmit"
             >
                 <FormKit
                     type="text"
                     label="Name"
+                    name="name"
                     placeholder="Client name"
                     validation="required"
                     :validation-messages="{required: 'Name is required.'}"
@@ -36,6 +43,7 @@ defineProps({
                 <FormKit
                     type="text"
                     label="Surname"
+                    name="surname"
                     placeholder="surname"
                     validation="required"
                     :validation-messages="{required: 'Surname is required.'}"
@@ -43,6 +51,7 @@ defineProps({
                 <FormKit
                     type="email"
                     label="Email"
+                    name="email"
                     placeholder="Email"
                     validation="required|email"
                     :validation-messages="{required: 'Email is required.'}"
@@ -50,6 +59,7 @@ defineProps({
                 <FormKit
                     type="text"
                     label="Phone"
+                    name="phone"
                     placeholder="Phone: xxx-xxx-xxxx"
                     validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
                     :validation-messages="{matches: 'Phone number format is incorrect.'}"
@@ -57,11 +67,13 @@ defineProps({
                 <FormKit
                     type="text"
                     label="Company"
+                    name="company"
                     placeholder="company"
                 />
                 <FormKit
                     type="text"
                     label="Occupation"
+                    name="occupation"
                     placeholder="Occupation"
                 />
             </FormKit>
