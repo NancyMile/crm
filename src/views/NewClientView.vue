@@ -1,6 +1,13 @@
 <script setup>
 import RouterLink from '../components/UI/RouterLink.vue';
 import Heading from '../components/UI/Heading.vue'
+
+defineProps({
+    title: {
+        type: String,
+        required: true
+    }
+})
 </script>
 
 <template>
@@ -9,5 +16,5 @@ import Heading from '../components/UI/Heading.vue'
             Back
         </RouterLink>
     </div>
-    <Heading>New Client</Heading>
+    <Heading>{{ title }}</Heading>
 </template>
