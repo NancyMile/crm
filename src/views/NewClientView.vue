@@ -20,18 +20,25 @@ defineProps({
     <Heading>{{ title }}</Heading>
 
     <div class="mx-auto mt-10 bg-white shadow">
-        <FormKit
-            type="form"
-        >
+        <div class="mx-auto md:w-2/3 py-20 px-6">
             <FormKit
-                type="text"
-                label="Name"
-                placeholder="Client name"
-                help="Name of the new client"
-                validation="required"
-                :validation-messages="{required: 'Name is required.'}"
-            />
-
-        </FormKit>
+                type="form"
+            >
+                <FormKit
+                    type="text"
+                    label="Name"
+                    placeholder="Client name"
+                    help="Name of the new client"
+                    validation="required"
+                    :validation-messages="{required: 'Name is required.'}"
+                />
+            </FormKit>
+        </div>
     </div>
 </template>
+
+<style>
+.formkit-wrapper {
+        max-width: 100%;
+    }
+</style>
