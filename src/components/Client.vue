@@ -37,7 +37,7 @@
         </td>
         <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 ">
             <RouterLink
-                to="/"
+                :to="{name: 'edit-client', params:{id: client.id}}"
                 class="text-indigo-600 hover:text-indigo-900 mr-5"
             >Edit</RouterLink>
             <button
