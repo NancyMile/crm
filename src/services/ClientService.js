@@ -10,5 +10,10 @@ export default {
     getClient(id) {
         //console.log(id)
         return api.get('/clients/'+id)
+    },
+    editClient(id, data) {
+        //console.log('editing...'+id)
+        return api.patch('clients/'+id,data)
     }
+
 }

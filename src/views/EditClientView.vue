@@ -32,7 +32,9 @@ defineProps({
 })
 
 const handleSubmit = (data) => {
-
+    ClientService.editClient(id, data)
+        .then(() => router.push({ name: 'home' }))
+        .catch(error => console.log(error))
 }
 </script>
 
