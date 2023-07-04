@@ -17,6 +17,7 @@ defineProps({
 const handleSubmit = (data) => {
     //console.log('submit ...')
     //console.log(data)
+    data.state = 1
     ClientService.addClient(data)
         .then(response => {
             //console.log(response)
