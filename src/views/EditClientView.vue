@@ -50,7 +50,7 @@ const handleSubmit = (data) => {
         <div class="mx-auto md:w-2/3 py-20 px-6">
             <FormKit
                 type="form"
-                submit-label="Add Client"
+                submit-label="Save Changes"
                 incomplete-message=" Please try again"
                 @submit="handleSubmit"
             >
