@@ -1,4 +1,5 @@
 <script setup>
+import { onMounted } from 'vue';
 import ClientService from '../services/ClientService'
 import RouterLink from '../components/UI/RouterLink.vue';
 import Heading from '../components/UI/Heading.vue'
@@ -10,6 +11,12 @@ const route = useRoute()
 
 //console.log(route.params)
 const { id } = route.params
+
+onMounted(() => {
+    ClientService.getClient(id)
+        .then(({ data }) => console.log(data))
+        .catch( error => console.error())
+})
 
 defineProps({
     title: {
