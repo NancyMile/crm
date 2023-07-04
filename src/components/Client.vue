@@ -9,7 +9,7 @@
         }
     })
 
-    defineEmits(['update-state'])
+    defineEmits(['update-state','delete-client'])
 
     const fullName = computed(() => { 
         return props.client.name+' ' +props.client.surname         
@@ -46,6 +46,7 @@
             >Edit</RouterLink>
             <button
                 class="text-red-600 hover:text-red-900"
+                @click="$emit('delete-client',client.id)"
             >
                 Delete
             </button>

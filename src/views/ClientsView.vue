@@ -27,15 +27,24 @@
         return Object.values(clients.value).length > 0
     })
 
-const updateClientState = ({ id, state}) => {
+    const updateClientState = ({ id, state}) => {
         //console.log('update state',data)
-    ClientService.changeClientState(id, { state: !state }) // chage state
+        ClientService.changeClientState(id, { state: !state }) // chage state
         .then(() => {
             // change the state on clients array,to see the changes without reloading the page
             const i = clients.value.findIndex(client => client.id === id)
             clients.value[i].state = !state
         })
         .catch(error =>console.log(error))
+    }
+
+    const deleteClient = id => {
+        //console.log('delete client ..',id)
+        ClientService.deleteClient(id)
+            .then(() => {
+                clients.value = clients.value.filter(client => client.id !== id)
+            })
+            .catch( error => console.log(error))
     }
 
 </script>
@@ -66,6 +75,7 @@ const updateClientState = ({ id, state}) => {
                                 :key="client.id"
                                 :client="client"
                                 @update-state="updateClientState"
+                                @delete-client="deleteClient"
                             />
                         </tbody>
                     </table>
