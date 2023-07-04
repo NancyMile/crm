@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, reactive } from 'vue';
 import ClientService from '../services/ClientService'
 import RouterLink from '../components/UI/RouterLink.vue';
 import Heading from '../components/UI/Heading.vue'
@@ -12,9 +12,15 @@ const route = useRoute()
 //console.log(route.params)
 const { id } = route.params
 
+const formData = reactive({})
+
+
 onMounted(() => {
     ClientService.getClient(id)
-        .then(({ data }) => console.log(data))
+        .then(({ data }) => {
+            //console.log(data)
+            Object.assign(formData,data)
+        })
         .catch( error => console.error())
 })
 
@@ -53,6 +59,7 @@ const handleSubmit = (data) => {
                     placeholder="Client name"
                     validation="required"
                     :validation-messages="{required: 'Name is required.'}"
+                    v-model="formData.name"
                 />
                 <FormKit
                     type="text"
@@ -61,6 +68,7 @@ const handleSubmit = (data) => {
                     placeholder="surname"
                     validation="required"
                     :validation-messages="{required: 'Surname is required.'}"
+                    v-model="formData.surname"
                 />
                 <FormKit
                     type="email"
@@ -69,6 +77,7 @@ const handleSubmit = (data) => {
                     placeholder="Email"
                     validation="required|email"
                     :validation-messages="{required: 'Email is required.'}"
+                    v-model="formData.email"
                 />
                 <FormKit
                     type="text"
@@ -77,18 +86,21 @@ const handleSubmit = (data) => {
                     placeholder="Phone: xxx-xxx-xxxx"
                     validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
                     :validation-messages="{matches: 'Phone number format is incorrect.'}"
+                    v-model="formData.phone"
                 />
                 <FormKit
                     type="text"
                     label="Company"
                     name="company"
                     placeholder="company"
+                    v-model="formData.company"
                 />
                 <FormKit
                     type="text"
                     label="Occupation"
                     name="occupation"
                     placeholder="Occupation"
+                    v-model="formData.occupation"
                 />
             </FormKit>
         </div>
