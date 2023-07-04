@@ -13,7 +13,10 @@ export default {
     },
     editClient(id, data) {
         //console.log('editing...'+id)
-        return api.patch('clients/'+id,data)
+        return api.patch('/clients/'+id,data)
+    },
+    changeClientState(id,data) {
+        return api.patch('/clients/'+id,data)
     }
 
 }

@@ -27,6 +27,17 @@
         return Object.values(clients.value).length > 0
     })
 
+const updateClientState = ({ id, state}) => {
+        //console.log('update state',data)
+    ClientService.changeClientState(id, { state: !state }) // chage state
+        .then(() => {
+            // change the state on clients array,to see the changes without reloading the page
+            const i = clients.value.findIndex(client => client.id === id)
+            clients.value[i].state = !state
+        })
+        .catch(error =>console.log(error))
+    }
+
 </script>
 
 <template>
@@ -54,6 +65,7 @@
                                 v-for="client in clients"
                                 :key="client.id"
                                 :client="client"
+                                @update-state="updateClientState"
                             />
                         </tbody>
                     </table>

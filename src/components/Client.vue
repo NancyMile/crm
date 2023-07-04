@@ -9,6 +9,8 @@
         }
     })
 
+    defineEmits(['update-state'])
+
     const fullName = computed(() => { 
         return props.client.name+' ' +props.client.surname         
     })
@@ -31,7 +33,9 @@
         </td>
         <td class="whitespace-nowrap px-3 py-4 text-sm">
             <button class="inline-flex rounded-full px-2 text-xs font-semibold leading-5"
-                :class="[clientState ? 'bg-green-100 text-green-800': 'bg-red-100 text-red-800']">
+                :class="[clientState ? 'bg-green-100 text-green-800': 'bg-red-100 text-red-800']"
+                @click="$emit('update-state',{id:client.id, state: client.state})"
+            >
                 {{ clientState ? 'Active': 'Inactive' }}
             </button>
         </td>
